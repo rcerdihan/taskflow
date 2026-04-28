@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TaskFlow - Premium Kanban Board
 
-## Getting Started
+TaskFlow is a modern, responsive, and interactive Kanban board application built for task management. It features a drag-and-drop interface, real-time updates, and a sleek UI.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**[Click here to view the live deployment]** *(Add your Vercel link here)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Demo Credentials
+To test the application without registering, use the following credentials:
+- **Email:** `test@example.com`
+- **Password:** `password`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Drag and Drop Interface:** Seamlessly move tasks between columns or reorder them within the same column using `@dnd-kit`.
+- **Full CRUD Operations:** Create, Read, Update, and Delete columns and tasks.
+- **Authentication:** Secure user login and session management powered by NextAuth.js.
+- **Mobile Responsive:** Optimized for both desktop and mobile devices with touch sensors.
+- **Modern UI:** Built with Tailwind CSS, featuring glassmorphism, dynamic gradients, and smooth micro-animations.
+- **Database Persistence:** Real-time data syncing and persistence using Prisma ORM with PostgreSQL.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Database:** PostgreSQL (via Prisma Postgres)
+- **ORM:** [Prisma](https://www.prisma.io/)
+- **Authentication:** [NextAuth.js v5](https://authjs.dev/)
+- **Drag & Drop:** [@dnd-kit](https://docs.dndkit.com/)
+- **Deployment:** Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💻 Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd taskflow
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add your database URL:
+   ```env
+   DATABASE_URL="your-postgresql-url"
+   AUTH_SECRET="your-secret-key"
+   NEXTAUTH_URL="http://localhost:3000"
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Push the database schema:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+5. Seed the database with demo data:
+   ```bash
+   node prisma/seed.js
+   ```
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📝 License
+This project was developed as a technical assessment.
