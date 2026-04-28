@@ -14,7 +14,6 @@ interface Props {
 }
 
 export default function TaskCard({ task, isOverlay, onDelete, onUpdate }: Props) {
-  const [isMouseOver, setIsMouseOver] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [localTitle, setLocalTitle] = useState(task.title);
   
@@ -58,8 +57,6 @@ export default function TaskCard({ task, isOverlay, onDelete, onUpdate }: Props)
       style={style}
       {...attributes}
       {...listeners}
-      onMouseEnter={() => setIsMouseOver(true)}
-      onMouseLeave={() => setIsMouseOver(false)}
       className={`glass rounded-xl p-4 w-full group cursor-grab hover:ring-2 hover:ring-indigo-500/50 transition-all ${
         isOverlay ? "scale-105 shadow-2xl rotate-2" : ""
       }`}
@@ -95,8 +92,8 @@ export default function TaskCard({ task, isOverlay, onDelete, onUpdate }: Props)
             onPointerDown={(e) => e.stopPropagation()}
           />
         )}
-        {isMouseOver && !editMode && (
-          <div className="flex items-center z-10 shrink-0">
+        {!editMode && (
+          <div className="flex items-center z-10 shrink-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200">
             <button className="text-gray-400 hover:text-white transition-colors p-1"
               onPointerDown={(e) => e.stopPropagation()}
               onClick={(e) => {
